@@ -1,0 +1,866 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "obsidian-banners",
+        "version": "1.0.0",
+        "title": "Banners",
+        "description": "Banners Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "2.0.5-beta",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "<p>As of Obsidian 1.4, the new Properties view supports the internal file syntax,\n        which makes it more straightforward to use local images as banners.</p> <p>Because of this,\n        <b>Banners 2.0 will no longer use the previous syntax for local images</b>\n        (<code>&quot;![[filename]]&quot;</code>).\n        If you used Banners 1.x in the past, this modal can facillitate this change\n        by scanning all of your notes in your vault for the legacy source syntax\n        and update it appropriately (at least to the best of its ability).</p> <p class=\"mod-warning\"><b>Warning:</b> this process will check the frontmatter of <b>all</b> your files and\n        make changes to files with the legacy syntax. This should be safe, but may take a bit\n        and backing up your files beforehand is always good.</p>",
+                    "target": "作为 Obsidian 1.4 版本中的新功能，全新的“属性 (Properties)”视图支持内部文件语法，这使得将本地图片用作横幅变得更加直接。因此，Banners 2.0 将不再对本地图片使用之前的语法（&quot;![[filename]]&quot;）。如果你过去使用过 Banners 1.x，此弹窗可以通过扫描你库（Vault）中的所有笔记来帮助你完成这项更改，以查找旧版源语法并对其进行相应的更新（尽最大可能）。<p class=\"mod-warning\"><b>警告：</b>此过程将检查你<b>所有</b>文件的 frontmatter（前置元数据），并对带有旧版语法的文件进行更改。这应该是安全的，但可能会花费一点时间，并且事先备份你的文件总是一个好习惯。</p>"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "Adjust the banner width to only be as wide as the <em>readable line length</em>, which is used\n    by Obsidian&#39;s <b>Readable line length</b> setting. It is recommended to toggle this together\n    with that setting.",
+                    "target": "将横幅宽度调整为与<em>可读行长度</em>（readable line length）一样宽，Obsidian 的<b>可读行长度</b>设置使用的就是该值。建议将此开关与该设置一起开启或关闭。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "Set a modifier key that must be used to drag a banner.\n    <br/>\n    For example, setting it to <b>\\u21E7 Shift</b> means you must hold down <b>Shift</b> in order to\n    move a banner by dragging it. This can help avoid accidental banner movements.",
+                    "target": "设置一个拖动横幅时必须使用的修饰键。\n<br/>\n例如，将其设置为 <b>\\u21E7 Shift</b> 意味着你必须按住 <b>Shift</b> 才能通过拖拽来移动横幅。这有助于避免意外移动横幅。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "Display the banner in the internal file embed. This is the embed that appears when you\n    write <code>![[file]]</code> in a file.\n    <br/> <b>Note:</b> You might need to reload Obsidian after toggling this setting",
+                    "target": "在内部文件嵌入中显示横幅。这是当你在文件中写入 <code>![[file]]</code> 时出现的嵌入内容。\n<br/> <b>注意：</b>切换此设置后，你可能需要重新加载 Obsidian。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "Display the banner in the page preview popover. This is the preview that appears from the\n    <em>Page Preview</em> core plugin.",
+                    "target": "在页面预览弹窗中显示横幅。这是由<em>页面预览</em>核心插件生成的预览。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "Enable and display the lock button on the corner of a banner. When combined with the\n    <b>Banner drag modifier key</b> setting, it might be desirable to disable this.",
+                    "target": "启用并在横幅角落显示锁定按钮。当与<b>横幅拖动修饰键</b>设置结合使用时，可能最好禁用此选项。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "Though personally, I like setting it to <code>2.5em</code>",
+                    "target": "不过就个人而言，我喜欢把它设置为 <code>2.5em</code>"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "<em>Note:</em> this setting stacks with the <b>Header font size</b> setting above",
+                    "target": "<em>注意：</em>此设置会与上方的 <b>标题字体大小</b> 设置叠加。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "Use <a href=\"https://github.com/jdecked/twemoji\" rel=\"noopener noreferrer\">Twemoji</a>\n    instead of your device&#39;s native emoji set. Makes emojis consistent across devices",
+                    "target": "使用 <a href=\"https://github.com/jdecked/twemoji\" rel=\"noopener noreferrer\">Twemoji</a> 替代你设备原生的表情符号集。这能让表情符号在不同设备上保持一致。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "Limit how many suggestions to display in this modal.\n    <br/> <em>Note:</em> setting a high number while <b>Show preview images</b> setting is toggled on\n    may cause slowdowns",
+                    "target": "限制此弹窗中显示的推荐建议数量。\n<br/> <em>注意：</em>在开启<b>显示预览图像</b>设置的情况下设置较高的数值，可能会导致运行缓慢。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "If enabled, the <b>Paste banner from clipboard</b> command will automatically download the\n    image from the URL into your vault and link it as an internal file. Great if you want to\n    keep some banners you found online!\n    <br/>\n    If you want to download them on a case-by-case basis though, you can use the\n    <b>Download banner in note to vault</b> command for a note with a remote banner URL.",
+                    "target": "如果启用，<b>从剪贴板粘贴横幅</b>命令将自动把 URL 中的图像下载到你的库中，并将其链接为内部文件。如果你想保留一些在网上找到的横幅，这会非常有用！\n<br/>\n不过，如果你想逐个下载它们，可以使用 <b>将笔记中的横幅下载到库</b>命令来处理包含远程横幅 URL 的笔记。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "<div class=\"loading svelte-sr783m\">Loading...</div>",
+                    "target": "正在加载......"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "/* empty */",
+                    "target": "/* 空 */"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "calc(1em + 10px)",
+                    "target": "calc(1em + 10px)"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "CSS length value",
+                    "target": "CSS 长度值"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Banner style",
+                    "target": "横幅样式"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Set a style for all of your banners",
+                    "target": "为你的所有横幅设置样式"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Banner height",
+                    "target": "横幅高度"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Mobile banner height",
+                    "target": "移动端横幅高度"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Adjust width to readable line length",
+                    "target": "将宽度调整至可读行长度"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Banner drag modifier key",
+                    "target": "横幅拖动修饰键"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Property field name",
+                    "target": "属性字段名称"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Properties",
+                    "target": "属性"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Show in internal embed",
+                    "target": "在内部嵌入中显示"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Internal embed banner height",
+                    "target": "内部嵌入横幅高度"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Enable drag in internal embed",
+                    "target": "在内部嵌入时启用拖动"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Allow banner dragging from within an internal embed",
+                    "target": "允许在内部嵌入时拖动横幅"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Show in preview popover",
+                    "target": "在预览弹窗中显示"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Preview popover banner height",
+                    "target": "预览弹窗横幅高度"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Enable drag in preview popover",
+                    "target": "在预览弹窗中启用拖动"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Allow banner dragging from within the preview popover.\n      This may act a bit finicky though.",
+                    "target": "允许在预览弹窗中拖动横幅。不过，这可能会有点难以操作。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Enable lock button",
+                    "target": "启用锁定按钮"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Header font size",
+                    "target": "标题字体大小"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Header decoration",
+                    "target": "标题装饰"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Add a shadow or border on the header elements to help with readability.",
+                    "target": "在标题元素上添加阴影或边框，以帮助提高可读性。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Horizontal alignment",
+                    "target": "水平对齐"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Align the header horizontally.",
+                    "target": "水平对齐标题"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Custom horizontal alignment",
+                    "target": "自定义水平对齐"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Vertical alignment",
+                    "target": "垂直对齐"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Align the header vertically relative to a banner, if any. If there's no banner, this setting\n    has no effect.",
+                    "target": "相对于横幅垂直对齐标题（如果有的话）。如果没有横幅，此设置无效。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Custom vertical alignment",
+                    "target": "自定义垂直对齐"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Display header by default",
+                    "target": "默认显示标题"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Default header value",
+                    "target": "默认标题值"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "{{property1, property2, property3}} syntax.",
+                    "target": "{{property1, property2, property3}} 语法。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Icon size",
+                    "target": "图标大小"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Use Twemoji",
+                    "target": "使用Twemoji"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Show preview images",
+                    "target": "显示预览图像"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Display a preview image of the suggested banner images",
+                    "target": "显示推荐横幅图像的预览图"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Suggestions limit",
+                    "target": "建议数量限制"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Banners folder",
+                    "target": "横幅文件夹"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Select a folder to exclusively search for banner files in. If empty, it will search\n    the entire vault for image files",
+                    "target": "选择一个文件夹，专门用于搜索横幅文件。如果留空，它将在整个库中搜索图像文件"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Auto-download pasted banners",
+                    "target": "自动下载粘贴的横幅"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Update legacy source syntax",
+                    "target": "更新旧版源语法"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "If you used Banners 1.x in the past, you may need to update the syntax for your banners'\n    sources across your notes. This will help you do that automatically in one go.",
+                    "target": "如果你过去使用过 Banners 1.x，你可能需要更新笔记中横幅源的语法。这将帮助你在一次操作中自动完成此更新。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Flush banner image cache",
+                    "target": "刷新横幅图像缓存"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "This plugin uses a cache to quickly return banner images, which is especially useful with\n    remote images. While this cache resets whenever you reopen/reload Obsidian, you can flush\n    the cache here if you're running into an issue with it.",
+                    "target": "此插件使用缓存来快速返回横幅图像，这对于远程图像尤其有用。虽然每次重新打开/重新加载 Obsidian 时该缓存都会重置，但如果你遇到相关问题，可以在此处刷新缓存。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Use file name as header",
+                    "target": "使用文件名作为标题"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Cancel",
+                    "target": "取消"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Submit",
+                    "target": "提交"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "createEl",
+                    "source": "br",
+                    "target": "br"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "open note!",
+                    "target": "打开笔记！"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Pick an emoji to use as an icon",
+                    "target": "选择一个表情符号用作图标"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Pick an image to use as a banner",
+                    "target": "选择一张图像用作横幅"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "Update legacy syntax for banner sources",
+                    "target": "更新横幅源的旧版语法"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "What would you like to put on your header?",
+                    "target": "你想在标题上放置什么？"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Unable to add a banner to the leaflet!",
+                    "target": "无法向 Leaflet 添加横幅！"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Error: Make sure that you set the \"Banners folder\" setting to a valid folder",
+                    "target": "错误：请确保将“横幅文件夹”设置为了有效的文件夹"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Couldn't download the image into the vault!",
+                    "target": "无法将图像下载到库中！"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Your clipboard didn't have a valid URL!",
+                    "target": "你的剪贴板中没有有效的 URL！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "A nice, lil' thing to add some flair to your notes :)",
+                    "target": "一个能给笔记增添些许风采的小玩意儿 :)"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Kinda like inline titles, but with a bit of pizazz",
+                    "target": "有点像内联标题，但更有风味"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Give a lil' notion of what your note is about",
+                    "target": "简单说明一下你的笔记是关于什么的"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "For the modal that shows when you run the \"Add/Change banner with local image\" command",
+                    "target": "用于当你运行“使用本地图像添加/更改横幅”命令时显示的弹窗"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "'Cause I do not know where else to put these...",
+                    "target": "因为我不知道还能把这些放在哪里..."
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "header",
+                    "target": "标题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Add/Change banner with local image",
+                    "target": "使用本地图像添加/更改横幅"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Remove banner",
+                    "target": "移除横幅"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Paste banner from clipboard",
+                    "target": "从剪贴板粘贴横幅"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Download banner in note to vault",
+                    "target": "将笔记中的横幅下载到库"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Lock/Unlock banner position",
+                    "target": "锁定/解锁横幅位置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Add/Change icon",
+                    "target": "添加/更改图标"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Remove icon",
+                    "target": "移除图标"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Add/Change header",
+                    "target": "添加/更改标题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Remove header",
+                    "target": "移除标题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Update banner sources",
+                    "target": "更新横幅源"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Flush banner cache",
+                    "target": "刷新横幅缓存"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Hey! Looks like you've used Banners in the past. ",
+                    "target": "嘿！看来你过去使用过 Banners。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Banners created in 1.x use an outdated syntax for internal files that no longer work in 2.0. To update this throughout your vault, go to the bottom of the Banners settings tab",
+                    "target": "在 1.x 中创建的横幅使用了过时的内部文件语法，该语法在 2.0 中已不再适用。要在整个库中更新此内容，请转到 Banners 设置标签页的底部"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Banners",
+                    "target": "横幅"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Banner Headers",
+                    "target": "横幅标题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Banner Icons",
+                    "target": "横幅图标"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Local Image Modal",
+                    "target": "本地图像弹窗"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Extras",
+                    "target": "附加功能"
+                }
+            ],
+            "regex": [
+                {
+                    "source": "setText(\"Update legacy syntax for banner sources\")",
+                    "target": "setText(\"Update legacy syntax for banner sources\")"
+                },
+                {
+                    "source": "Notice(`Updated Banner settings from ${e.version??\"1.x\"} to ${A.manifest.version}`)",
+                    "target": "Notice(`Updated Banner settings from ${e.version??\"1.x\"} to ${A.manifest.version}`)"
+                },
+                {
+                    "source": "setPlaceholder(\"Pick an emoji to use as an icon\")",
+                    "target": "setPlaceholder(\"Pick an emoji to use as an icon\")"
+                },
+                {
+                    "source": "Notice(\"Unable to add a banner to the leaflet!\")",
+                    "target": "Notice(\"Unable to add a banner to the leaflet!\")"
+                },
+                {
+                    "source": "Notice(`Failed to update banner at leaf ${a}!`)",
+                    "target": "Notice(`Failed to update banner at leaf ${a}!`)"
+                },
+                {
+                    "source": "log(\"open note!\")",
+                    "target": "log(\"open note!\")"
+                },
+                {
+                    "source": "setPlaceholder(\"Pick an image to use as a banner\")",
+                    "target": "setPlaceholder(\"Pick an image to use as a banner\")"
+                },
+                {
+                    "source": "setText(\"What would you like to put on your header?\")",
+                    "target": "setText(\"What would you like to put on your header?\")"
+                },
+                {
+                    "source": "Notice(`Downloaded the banner to ${i.path} and linked the note to it!`)",
+                    "target": "Notice(`Downloaded the banner to ${i.path} and linked the note to it!`)"
+                },
+                {
+                    "source": "Notice(\"Couldn't download the image into the vault!\")",
+                    "target": "Notice(\"Couldn't download the image into the vault!\")"
+                },
+                {
+                    "source": "Notice(\"Your clipboard didn't have a valid URL!\")",
+                    "target": "Notice(\"Your clipboard didn't have a valid URL!\")"
+                },
+                {
+                    "source": "Notice(`Pasted a new banner for ${e.name}!`)",
+                    "target": "Notice(`Pasted a new banner for ${e.name}!`)"
+                },
+                {
+                    "source": "textContent=\"/* empty */\"",
+                    "target": "textContent=\"/* empty */\""
+                },
+                {
+                    "source": "textContent=\"calc(1em + 10px)\"",
+                    "target": "textContent=\"calc(1em + 10px)\""
+                },
+                {
+                    "source": "textContent=\"CSS length value\"",
+                    "target": "textContent=\"CSS length value\""
+                },
+                {
+                    "source": "textContent=\"Banner style\"",
+                    "target": "textContent=\"Banner style\""
+                },
+                {
+                    "source": "textContent=\"Set a style for all of your banners\"",
+                    "target": "textContent=\"Set a style for all of your banners\""
+                },
+                {
+                    "source": "textContent=\"Banner height\"",
+                    "target": "textContent=\"Banner height\""
+                },
+                {
+                    "source": "textContent=\"Mobile banner height\"",
+                    "target": "textContent=\"Mobile banner height\""
+                },
+                {
+                    "source": "textContent=\"Adjust width to readable line length\"",
+                    "target": "textContent=\"Adjust width to readable line length\""
+                },
+                {
+                    "source": "textContent=\"Banner drag modifier key\"",
+                    "target": "textContent=\"Banner drag modifier key\""
+                },
+                {
+                    "source": "textContent=\"Property field name\"",
+                    "target": "textContent=\"Property field name\""
+                },
+                {
+                    "source": "textContent=\"Show in internal embed\"",
+                    "target": "textContent=\"Show in internal embed\""
+                },
+                {
+                    "source": "textContent=\"Internal embed banner height\"",
+                    "target": "textContent=\"Internal embed banner height\""
+                },
+                {
+                    "source": "textContent=\"Enable drag in internal embed\"",
+                    "target": "textContent=\"Enable drag in internal embed\""
+                },
+                {
+                    "source": "textContent=\"Allow banner dragging from within an internal embed\"",
+                    "target": "textContent=\"Allow banner dragging from within an internal embed\""
+                },
+                {
+                    "source": "textContent=\"Show in preview popover\"",
+                    "target": "textContent=\"Show in preview popover\""
+                },
+                {
+                    "source": "textContent=\"Preview popover banner height\"",
+                    "target": "textContent=\"Preview popover banner height\""
+                },
+                {
+                    "source": "textContent=\"Enable drag in preview popover\"",
+                    "target": "textContent=\"Enable drag in preview popover\""
+                },
+                {
+                    "source": "textContent=`Allow banner dragging from within the preview popover.\n      This may act a bit finicky though.`",
+                    "target": "textContent=`Allow banner dragging from within the preview popover.\n      This may act a bit finicky though.`"
+                },
+                {
+                    "source": "textContent=\"Enable lock button\"",
+                    "target": "textContent=\"Enable lock button\""
+                },
+                {
+                    "source": "textContent=\"Header font size\"",
+                    "target": "textContent=\"Header font size\""
+                },
+                {
+                    "source": "textContent=\"Header decoration\"",
+                    "target": "textContent=\"Header decoration\""
+                },
+                {
+                    "source": "textContent=\"Add a shadow or border on the header elements to help with readability.\"",
+                    "target": "textContent=\"Add a shadow or border on the header elements to help with readability.\""
+                },
+                {
+                    "source": "textContent=\"Horizontal alignment\"",
+                    "target": "textContent=\"Horizontal alignment\""
+                },
+                {
+                    "source": "textContent=\"Align the header horizontally.\"",
+                    "target": "textContent=\"Align the header horizontally.\""
+                },
+                {
+                    "source": "textContent=\"Custom horizontal alignment\"",
+                    "target": "textContent=\"Custom horizontal alignment\""
+                },
+                {
+                    "source": "textContent=\"Vertical alignment\"",
+                    "target": "textContent=\"Vertical alignment\""
+                },
+                {
+                    "source": "textContent=`Align the header vertically relative to a banner, if any. If there's no banner, this setting\n    has no effect.`",
+                    "target": "textContent=`Align the header vertically relative to a banner, if any. If there's no banner, this setting\n    has no effect.`"
+                },
+                {
+                    "source": "textContent=\"Custom vertical alignment\"",
+                    "target": "textContent=\"Custom vertical alignment\""
+                },
+                {
+                    "source": "textContent=\"Display header by default\"",
+                    "target": "textContent=\"Display header by default\""
+                },
+                {
+                    "source": "textContent=\"Default header value\"",
+                    "target": "textContent=\"Default header value\""
+                },
+                {
+                    "source": "textContent=\"Icon size\"",
+                    "target": "textContent=\"Icon size\""
+                },
+                {
+                    "source": "textContent=\"Use Twemoji\"",
+                    "target": "textContent=\"Use Twemoji\""
+                },
+                {
+                    "source": "textContent=\"Show preview images\"",
+                    "target": "textContent=\"Show preview images\""
+                },
+                {
+                    "source": "textContent=\"Display a preview image of the suggested banner images\"",
+                    "target": "textContent=\"Display a preview image of the suggested banner images\""
+                },
+                {
+                    "source": "textContent=\"Suggestions limit\"",
+                    "target": "textContent=\"Suggestions limit\""
+                },
+                {
+                    "source": "textContent=\"Banners folder\"",
+                    "target": "textContent=\"Banners folder\""
+                },
+                {
+                    "source": "textContent=`Select a folder to exclusively search for banner files in. If empty, it will search\n    the entire vault for image files`",
+                    "target": "textContent=`Select a folder to exclusively search for banner files in. If empty, it will search\n    the entire vault for image files`"
+                },
+                {
+                    "source": "textContent=\"Auto-download pasted banners\"",
+                    "target": "textContent=\"Auto-download pasted banners\""
+                },
+                {
+                    "source": "textContent=\"Update legacy source syntax\"",
+                    "target": "textContent=\"Update legacy source syntax\""
+                },
+                {
+                    "source": "textContent=`If you used Banners 1.x in the past, you may need to update the syntax for your banners'\n    sources across your notes. This will help you do that automatically in one go.`",
+                    "target": "textContent=`If you used Banners 1.x in the past, you may need to update the syntax for your banners'\n    sources across your notes. This will help you do that automatically in one go.`"
+                },
+                {
+                    "source": "textContent=\"Flush banner image cache\"",
+                    "target": "textContent=\"Flush banner image cache\""
+                },
+                {
+                    "source": "textContent=`This plugin uses a cache to quickly return banner images, which is especially useful with\n    remote images. While this cache resets whenever you reopen/reload Obsidian, you can flush\n    the cache here if you're running into an issue with it.`",
+                    "target": "textContent=`This plugin uses a cache to quickly return banner images, which is especially useful with\n    remote images. While this cache resets whenever you reopen/reload Obsidian, you can flush\n    the cache here if you're running into an issue with it.`"
+                },
+                {
+                    "source": "description:\"A nice, lil' thing to add some flair to your notes :)\"",
+                    "target": "description:\"A nice, lil' thing to add some flair to your notes :)\""
+                },
+                {
+                    "source": "description:\"Kinda like inline titles, but with a bit of pizazz\"",
+                    "target": "description:\"Kinda like inline titles, but with a bit of pizazz\""
+                },
+                {
+                    "source": "description:\"Give a lil' notion of what your note is about\"",
+                    "target": "description:\"Give a lil' notion of what your note is about\""
+                },
+                {
+                    "source": "description:'For the modal that shows when you run the \"Add/Change banner with local image\" command'",
+                    "target": "description:'For the modal that shows when you run the \"Add/Change banner with local image\" command'"
+                },
+                {
+                    "source": "description:\"'Cause I do not know where else to put these...\"",
+                    "target": "description:\"'Cause I do not know where else to put these...\""
+                },
+                {
+                    "source": "text:\"Update banner sources\"",
+                    "target": "text:\"Update banner sources\""
+                },
+                {
+                    "source": "text:\"Flush banner cache\"",
+                    "target": "text:\"Flush banner cache\""
+                },
+                {
+                    "source": "text:\"Hey! Looks like you've used Banners in the past. \"",
+                    "target": "text:\"Hey! Looks like you've used Banners in the past. \""
+                },
+                {
+                    "source": "textContent=\"Use file name as header\"",
+                    "target": "textContent=\"Use file name as header\""
+                },
+                {
+                    "source": "name:\"Add/Change banner with local image\"",
+                    "target": "name:\"Add/Change banner with local image\""
+                },
+                {
+                    "source": "name:\"Remove banner\"",
+                    "target": "name:\"Remove banner\""
+                },
+                {
+                    "source": "name:\"Paste banner from clipboard\"",
+                    "target": "name:\"Paste banner from clipboard\""
+                },
+                {
+                    "source": "name:\"Download banner in note to vault\"",
+                    "target": "name:\"Download banner in note to vault\""
+                },
+                {
+                    "source": "name:\"Lock/Unlock banner position\"",
+                    "target": "name:\"Lock/Unlock banner position\""
+                },
+                {
+                    "source": "name:\"Add/Change icon\"",
+                    "target": "name:\"Add/Change icon\""
+                },
+                {
+                    "source": "name:\"Remove icon\"",
+                    "target": "name:\"Remove icon\""
+                },
+                {
+                    "source": "name:\"Add/Change header\"",
+                    "target": "name:\"Add/Change header\""
+                },
+                {
+                    "source": "name:\"Remove header\"",
+                    "target": "name:\"Remove header\""
+                }
+            ]
+        }
+    }
+}
